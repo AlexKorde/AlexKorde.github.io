@@ -7,55 +7,126 @@
     <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
     <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     <style>
+        :root {
+            --apple-grey: #f5f5f7;
+            --text-dark: #1d1d1f;
+            --link-blue: #0066cc;
+        }
+
         body {
-            font-family: "Apple Garamond", "EB Garamond", "Times New Roman", serif;
-            background-color: #ffffff;
-            color: #1d1d1f;
+            font-family: "EB Garamond", "Times New Roman", serif;
+            background-color: white;
+            color: var(--text-dark);
             line-height: 1.6;
-            max-width: 850px;
+            max-width: 800px;
             margin: 0 auto;
-            padding: 60px 20px;
+            padding: 80px 20px;
         }
+
         header {
-            border-bottom: 2px solid #1d1d1f;
+            border-bottom: 1px solid var(--text-dark);
             padding-bottom: 20px;
-            margin-bottom: 40px;
+            margin-bottom: 50px;
         }
-        h1 { font-size: 2.5rem; margin: 0; font-weight: 500; }
-        .subtitle { font-style: italic; color: #515154; font-size: 1.1rem; }
+
+        h1 { font-size: 2.8rem; margin: 0; font-weight: 500; letter-spacing: -0.01em; }
+        .credentials { font-style: italic; font-size: 1.2rem; color: #515154; margin-top: 5px; }
         
-        .project-index { margin-top: 50px; }
-        .project-card {
+        .project-section { margin-bottom: 80px; }
+        .project-header {
             display: flex;
-            gap: 30px;
-            margin-bottom: 60px;
-            align-items: flex-start;
+            justify-content: space-between;
+            align-items: baseline;
+            border-bottom: 1px double #d2d2d7;
+            margin-bottom: 20px;
         }
-        .project-screenshot {
-            flex: 0 0 250px;
-            border: 1px solid #d2d2d7;
-            border-radius: 4px;
-            box-shadow: 4px 4px 0px #d2d2d7; /* 90s UI feel */
-        }
-        .project-content { flex: 1; }
-        .project-tag { font-family: sans-serif; font-size: 0.7rem; text-transform: uppercase; letter-spacing: 1px; color: #86868b; }
+
+        .tag { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif; font-size: 0.75rem; font-weight: 600; text-transform: uppercase; color: #86868b; }
         
-        .file-links { margin-top: 15px; }
-        .file-links a {
-            text-decoration: none;
-            color: #0066cc;
-            font-size: 0.9rem;
-            margin-right: 15px;
-            border: 1px solid #0066cc;
-            padding: 2px 8px;
-            border-radius: 3px;
+        .screenshot-gallery {
+            display: flex;
+            gap: 15px;
+            margin: 20px 0;
+            overflow-x: auto;
         }
-        .file-links a:hover { background: #0066cc; color: white; }
+
+        .screenshot-gallery img {
+            height: 200px;
+            border: 1px solid #d2d2d7;
+            border-radius: 2px;
+            box-shadow: 2px 2px 0px #f5f5f7;
+        }
+
+        .file-list {
+            list-style: none;
+            padding: 0;
+            display: flex;
+            gap: 20px;
+        }
+
+        .file-list a {
+            color: var(--link-blue);
+            text-decoration: none;
+            font-size: 0.95rem;
+            border: 1px solid var(--link-blue);
+            padding: 4px 12px;
+            border-radius: 4px;
+        }
+
+        .file-list a:hover { background: var(--link-blue); color: white; }
+
+        footer { margin-top: 100px; font-size: 0.8rem; color: #86868b; text-align: center; border-top: 1px solid #d2d2d7; padding-top: 20px;}
     </style>
 </head>
 <body>
 
 <header>
     <h1>ALEX KORDE</h1>
-    <p class="subtitle">Mathematics (UVA) & Economics (VCU)</p>
-    <p>alexkorde@icloud.com | linkedin.com/in/alexkorde/</
+    <p class="credentials">Financial Mathematics, University of Virginia</p>
+    <p>alexkorde@icloud.com | <a href="resume/alex-korde-resume.pdf" style="color:black">Curriculum Vitae</a></p>
+</header>
+
+<main>
+    <section class="project-section">
+        <div class="project-header">
+            <h2>CFP aNILyzer: Predictive Market Modeling</h2>
+            <span class="tag">Python • Scikit-Learn</span>
+        </div>
+        <p>Designed an era-normalization framework to control for structural shifts in offensive production following the 2021 NIL regulatory break point[cite: 15, 16].</p>
+        
+        <div class="screenshot-gallery">
+            <img src="cfb-nil-analyzer/Screenshots/data-sheet.png" alt="Data Sheet">
+            <img src="cfb-nil-analyzer/Screenshots/tcu-v-ucf.png" alt="TCU vs UCF">
+            <img src="cfb-nil-analyzer/Screenshots/rankings.png" alt="Rankings">
+        </div>
+
+        <div class="file-list">
+            <a href="cfb-nil-analyzer/cfb-model.py">Source Code (.py)</a>
+            <a href="cfb-nil-analyzer/dashboard.py">Dashboard Script</a>
+        </div>
+    </section>
+
+    <section class="project-section">
+        <div class="project-header">
+            <h2>Hydro-Turbine Efficiency Optimization</h2>
+            <span class="tag">MATLAB • Multivariate Calculus</span>
+        </div>
+        <p>Formulated a constrained optimization model to maximize power output relative to blade surface area[cite: 19]. Optimal geometry identified via the Lagrangian:</p>
+        
+        <p style="text-align: center; font-size: 1.2rem;">
+            $$\mathcal{L}(x,y,\lambda)=f(x,y)-\lambda(g(x,y)-c)$$
+        </p>
+
+        <div class="file-list">
+            <a href="hydro-turbine/optimization_logic.m">MATLAB Logic (.m)</a>
+            <a href="hydro-turbine/hydro-turbine-paper.pdf">Technical Paper (.pdf)</a>
+        </div>
+    </section>
+</main>
+
+<footer>
+    <p>&copy; 2026 Alex Korde. Typeset in EB Garamond.</p>
+</footer>
+
+</body>
+</html>

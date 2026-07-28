@@ -1,0 +1,471 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>La Roja: Historia de España en los Mundiales</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background-color: #f5f5f5;
+        }
+
+        .container {
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        header {
+            background: linear-gradient(135deg, #c60c30 0%, #ffc400 100%);
+            color: white;
+            padding: 40px 20px;
+            text-align: center;
+            border-radius: 8px;
+            margin-bottom: 40px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+
+        header h1 {
+            font-size: 2.5em;
+            margin-bottom: 10px;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+        }
+
+        header p {
+            font-size: 1.1em;
+            opacity: 0.95;
+        }
+
+        /* Tab Navigation */
+        .tabs {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0;
+            margin-bottom: 30px;
+            border-bottom: 2px solid #ddd;
+            background: white;
+            border-radius: 8px 8px 0 0;
+            overflow: hidden;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+        }
+
+        .tab-button {
+            flex: 1;
+            min-width: 140px;
+            padding: 15px 20px;
+            background: none;
+            border: none;
+            cursor: pointer;
+            font-size: 0.95em;
+            font-weight: 500;
+            color: #666;
+            border-bottom: 3px solid transparent;
+            transition: all 0.3s ease;
+            text-align: center;
+        }
+
+        .tab-button:hover {
+            background-color: #f9f9f9;
+            color: #c60c30;
+        }
+
+        .tab-button.active {
+            color: #c60c30;
+            border-bottom-color: #ffc400;
+            background-color: #fff8f0;
+        }
+
+        /* Tab Content */
+        .tab-content {
+            display: none;
+            background: white;
+            padding: 30px;
+            border-radius: 0 0 8px 8px;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+            animation: fadeIn 0.3s ease-in;
+        }
+
+        .tab-content.active {
+            display: block;
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+            }
+            to {
+                opacity: 1;
+            }
+        }
+
+        /* Content Sections */
+        .section {
+            margin-bottom: 30px;
+        }
+
+        .section h2 {
+            color: #c60c30;
+            font-size: 1.8em;
+            margin-bottom: 15px;
+            border-left: 4px solid #ffc400;
+            padding-left: 15px;
+        }
+
+        .section h3 {
+            color: #c60c30;
+            font-size: 1.3em;
+            margin-top: 20px;
+            margin-bottom: 10px;
+        }
+
+        .section p {
+            color: #555;
+            margin-bottom: 10px;
+            text-align: justify;
+        }
+
+        .highlight-box {
+            background-color: #fff8f0;
+            border-left: 4px solid #ffc400;
+            padding: 15px;
+            margin: 20px 0;
+            border-radius: 4px;
+        }
+
+        .highlight-box strong {
+            color: #c60c30;
+        }
+
+        .warning-box {
+            background-color: #ffe8e8;
+            border-left: 4px solid #c60c30;
+            padding: 15px;
+            margin: 20px 0;
+            border-radius: 4px;
+        }
+
+        .warning-box strong {
+            color: #c60c30;
+        }
+
+        /* Statistics Box */
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 15px;
+            margin: 20px 0;
+        }
+
+        .stat-card {
+            background: #f9f9f9;
+            border: 2px solid #ffc400;
+            padding: 20px;
+            border-radius: 6px;
+            text-align: center;
+            transition: transform 0.3s ease;
+        }
+
+        .stat-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 4px 12px rgba(198, 12, 48, 0.15);
+        }
+
+        .stat-number {
+            font-size: 2.2em;
+            font-weight: bold;
+            color: #c60c30;
+            margin-bottom: 5px;
+        }
+
+        .stat-label {
+            color: #666;
+            font-size: 0.95em;
+        }
+
+        /* List Styles */
+        .section ul,
+        .section ol {
+            margin-left: 20px;
+            margin-bottom: 15px;
+        }
+
+        .section li {
+            margin-bottom: 8px;
+            color: #555;
+        }
+
+        .person-item {
+            background: #f9f9f9;
+            padding: 12px;
+            margin: 8px 0;
+            border-radius: 4px;
+            border-left: 3px solid #c60c30;
+        }
+
+        .person-item strong {
+            color: #c60c30;
+        }
+
+        /* Timeline */
+        .timeline {
+            position: relative;
+            padding: 20px 0;
+        }
+
+        .timeline-item {
+            margin-bottom: 30px;
+            padding-left: 30px;
+            border-left: 2px solid #ffc400;
+            position: relative;
+        }
+
+        .timeline-item::before {
+            content: '';
+            position: absolute;
+            left: -8px;
+            top: 0;
+            width: 14px;
+            height: 14px;
+            background: #c60c30;
+            border-radius: 50%;
+            border: 3px solid white;
+        }
+
+        .timeline-year {
+            color: #c60c30;
+            font-weight: bold;
+            font-size: 1.1em;
+        }
+
+        .timeline-text {
+            color: #555;
+            margin-top: 5px;
+        }
+
+        /* Footer */
+        footer {
+            text-align: center;
+            margin-top: 50px;
+            padding: 20px;
+            color: #999;
+            font-size: 0.9em;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            header h1 {
+                font-size: 2em;
+            }
+
+            .tabs {
+                flex-direction: column;
+            }
+
+            .tab-button {
+                min-width: 100%;
+                font-size: 0.9em;
+            }
+
+            .stats-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        @media (max-width: 480px) {
+            .container {
+                padding: 10px;
+            }
+
+            header {
+                padding: 20px 10px;
+            }
+
+            header h1 {
+                font-size: 1.6em;
+            }
+
+            header p {
+                font-size: 0.95em;
+            }
+
+            .tab-content {
+                padding: 15px;
+            }
+
+            .section h2 {
+                font-size: 1.4em;
+            }
+
+            .stats-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .tab-button {
+                font-size: 0.8em;
+                padding: 12px 10px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <!-- Header -->
+        <header>
+            <h1>La Roja en la Copa Mundial</h1>
+            <p>La Historia de España en los Mundiales: Identidad Colectiva y Redención</p>
+        </header>
+
+        <!-- Tab Navigation -->
+        <div class="tabs">
+            <button class="tab-button active" onclick="switchTab(event, 'introduccion')">
+                Introducción
+            </button>
+            <button class="tab-button" onclick="switchTab(event, 'ruptura')">
+                Ruptura Generacional (1934-1950)
+            </button>
+            <button class="tab-button" onclick="switchTab(event, 'candidata')">
+                La Eterna Candidata (1950-2002)
+            </button>
+            <button class="tab-button" onclick="switchTab(event, 'redencion')">
+                Redención (2008-2010)
+            </button>
+            <button class="tab-button" onclick="switchTab(event, 'dorada')">
+                La Generación Dorada
+            </button>
+        </div>
+
+        <!-- Tab 1: Introducción -->
+        <div id="introduccion" class="tab-content active">
+            <div class="section">
+                <h2>Introducción: El Fútbol como Identidad Colectiva</h2>
+                
+                <h3>La Importancia del Fútbol en España</h3>
+
+                <h3>Contexto Comparativo</h3>
+            </div>
+        </div>
+
+        <!-- Tab 2: Ruptura Generacional -->
+        <div id="ruptura" class="tab-content">
+            <div class="section">
+                <h2>La Ruptura Generacional (1934-1950)</h2>
+                
+                <h3>El Contexto Histórico</h3>
+
+                <h3>El Régimen de Franco y el Fútbol</h3>
+
+                <h3>Ausencia y Aislamiento Internacional</h3>
+
+                <h3>El Impacto Generacional</h3>
+            </div>
+        </div>
+
+        <!-- Tab 3: La Eterna Candidata -->
+        <div id="candidata" class="tab-content">
+            <div class="section">
+                <h2>La Eterna Candidata (1950-2002)</h2>
+                
+                <h3>El Surgimiento de 1950</h3>
+
+                <h3>El Enfrentamiento Contra Potencias</h3>
+
+                <h3>La Comparación con UVA: El Equipo de "La Furia"</h3>
+            </div>
+        </div>
+
+        <!-- Tab 4: Redención -->
+        <div id="redencion" class="tab-content">
+            <div class="section">
+                <h2>Redención: 2008-2010</h2>
+                
+                <h3>El Atraco de Gwangju (2002)</h3>
+
+                <h3>La Transformación (2006-2008)</h3>
+
+                <h3>La Redención Final (2010)</h3>
+
+                <h3>2026: La Pregunta de la Continuidad</h3>
+            </div>
+        </div>
+
+        <!-- Tab 5: La Generación Dorada -->
+        <div id="dorada" class="tab-content">
+            <div class="section">
+                <h2>La Generación Dorada: Los Arquitectos de la Redención</h2>
+                
+                <h3>Más Allá del Fútbol</h3>
+
+                <h3>Los Protagonistas de la Generación Dorada</h3>
+
+                <h3>La Filosofía del Juego</h3>
+
+                <h3>Legado Duradero</h3>
+
+                <h3>¿La Roja se Redimirá de Nuevo?</h3>
+            </div>
+        </div>
+
+        <!-- Footer -->
+        <footer>
+            <p>&copy; 2024 La Roja en la Copa Mundial. Basado en análisis de ESPN Deportes y documentación histórica.</p>
+            <p>Última actualización: 2024</p>
+        </footer>
+    </div>
+
+    <script>
+        function switchTab(event, tabName) {
+            // Hide all tab contents
+            const tabContents = document.querySelectorAll('.tab-content');
+            tabContents.forEach(content => {
+                content.classList.remove('active');
+            });
+
+            // Remove active class from all buttons
+            const tabButtons = document.querySelectorAll('.tab-button');
+            tabButtons.forEach(button => {
+                button.classList.remove('active');
+            });
+
+            // Show selected tab content
+            const selectedTab = document.getElementById(tabName);
+            if (selectedTab) {
+                selectedTab.classList.add('active');
+            }
+
+            // Add active class to clicked button
+            event.currentTarget.classList.add('active');
+
+            // Scroll to top of content
+            window.scrollTo(0, document.querySelector('.tabs').offsetTop - 20);
+        }
+
+        // Keyboard navigation
+        document.addEventListener('DOMContentLoaded', function() {
+            const tabButtons = document.querySelectorAll('.tab-button');
+            
+            tabButtons.forEach((button, index) => {
+                button.addEventListener('keydown', function(e) {
+                    if (e.key === 'ArrowRight') {
+                        const nextIndex = (index + 1) % tabButtons.length;
+                        tabButtons[nextIndex].click();
+                        tabButtons[nextIndex].focus();
+                    } else if (e.key === 'ArrowLeft') {
+                        const prevIndex = (index - 1 + tabButtons.length) % tabButtons.length;
+                        tabButtons[prevIndex].click();
+                        tabButtons[prevIndex].focus();
+                    }
+                });
+            });
+        });
+    </script>
+</body>
+</html>

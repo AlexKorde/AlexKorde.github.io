@@ -386,26 +386,30 @@
         </header>
 
         <!-- Tab Navigation -->
-        <div class="tabs">
-            <button class="tab-button active" onclick="switchTab(event, 'introduccion')">
-                Introducción
-            </button>
-            <button class="tab-button" onclick="switchTab(event, 'ruptura')">
-                Ruptura Generacional (1934-1950)
-            </button>
-            <button class="tab-button" onclick="switchTab(event, 'candidata')">
-                La Eterna Candidata (1950-2002)
-            </button>
-            <button class="tab-button" onclick="switchTab(event, 'redencion')">
-                Redención (2008-2010)
-            </button>
-            <button class="tab-button" onclick="switchTab(event, 'dorada')">
-                La Generación Dorada
-            </button>
-            <button class="tab-button" onclick="switchTab(event, 'fuentes')">
-                Fuentes
-            </button>
-        </div>
+<div class="tabs">
+    <button class="tab-button active" onclick="switchTab(event, 'introduccion')">
+        Introducción
+    </button>
+    <button class="tab-button" onclick="switchTab(event, 'ruptura')">
+        Ruptura Generacional (1934-1950)
+    </button>
+    <button class="tab-button" onclick="switchTab(event, 'candidata')">
+        La Eterna Candidata (1950-2002)
+    </button>
+    <button class="tab-button" onclick="switchTab(event, 'redencion')">
+        Redención (2008-2010)
+    </button>
+    <button class="tab-button" onclick="switchTab(event, 'dorada')">
+        La Generación Dorada
+    </button>
+    <!-- NUEVA PESTAÑA DE PODCAST -->
+    <button class="tab-button" onclick="switchTab(event, 'podcast')">
+        Podcast
+    </button>
+    <button class="tab-button" onclick="switchTab(event, 'fuentes')">
+        Fuentes
+    </button>
+</div>
 
         <!-- Tab 1: Introducción -->
         <div id="introduccion" class="tab-content active">
@@ -630,6 +634,45 @@
                 <!-- AGREGAR TEXTO: Si desea escribir fuentes adicionadas manualmente en texto, puede hacerlo abajo -->
             </div>
         </div>
+
+<!-- Tab: Podcast -->
+<div id="podcast" class="tab-content">
+    <div class="section">
+        <h2>Podcast: La Historia de La Roja</h2>
+        
+        <!-- AGREGAR TEXTO: Descripción breve del episodio -->
+        <p>
+            En este episodio se analizará cómo la Selección Española pasará de ser "la eterna candidata" a convertirse en campeona del mundo. 
+            Se discutirán los momentos clave de la historia deportiva y el impacto del fútbol en la identidad colectiva del país.
+        </p>
+
+        <!-- AGREGAR IMAGEN: Foto de portada del podcast opcional -->
+        <!-- <img src="portada-podcast.jpg" alt="Portada del Podcast" class="content-img"> -->
+
+        <div class="highlight-box">
+            <strong>Escucha el Episodio Especial:</strong>
+            <p style="margin-top: 10px; margin-bottom: 15px;">
+                Reproduce el archivo de audio a continuación para escuchar nuestro análisis completo:
+            </p>
+
+            <!-- REPRODUCTOR DE AUDIO INTEGRADO -->
+            <audio controls style="width: 100%; margin-top: 10px;">
+                <source src="audio/mi-archivo.mp3" type="audio/mpeg">
+                Tu navegador no soporta audio.
+            </audio>
+        </div>
+
+        <h3>Detalles del Episodio</h3>
+        <ul>
+            <li><strong>Duración:</strong> 15 minutos</li>
+            <li><strong>Temas abordados:</strong> La ruptura generacional, el atraco de Gwangju y la era dorada.</li>
+            <li><strong>Idioma:</strong> Español</li>
+        </ul>
+
+        <!-- AGREGAR TEXTO: Notas del episodio adicionales -->
+    </div>
+</div>
+
 
     
 

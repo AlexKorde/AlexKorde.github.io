@@ -5,6 +5,31 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>La Roja: Historia de España en los Mundiales</title>
     <style>
+        /* Font-face declaration for Apple Garamond */
+        @font-face {
+            font-family: 'Apple Garamond';
+            src: local('Apple Garamond'), local('AppleGaramond');
+            font-weight: normal;
+            font-style: normal;
+        }
+
+        @font-face {
+            font-family: 'Apple Garamond';
+            src: local('Apple Garamond Bold'), local('AppleGaramond-Bold');
+            font-weight: bold;
+            font-style: normal;
+        }
+
+        :root {
+            --bg-dark: #121212;
+            --card-dark: #1e1e1e;
+            --card-border: #2a2a2a;
+            --text-main: #e0e0e0;
+            --text-muted: #a0a0a0;
+            --red-accent: #d32f2f;
+            --gold-accent: #ffb300;
+        }
+
         * {
             margin: 0;
             padding: 0;
@@ -12,10 +37,10 @@
         }
 
         body {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            font-family: 'Apple Garamond', 'Garamond', 'Georgia', serif;
             line-height: 1.6;
-            color: #333;
-            background-color: #f5f5f5;
+            color: var(--text-main);
+            background-color: var(--bg-dark);
         }
 
         .container {
@@ -25,23 +50,25 @@
         }
 
         header {
-            background: linear-gradient(135deg, #c60c30 0%, #ffc400 100%);
+            background: linear-gradient(135deg, #8b0000 0%, #b8860b 100%);
             color: white;
             padding: 40px 20px;
             text-align: center;
             border-radius: 8px;
             margin-bottom: 40px;
-            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5);
+            border: 1px solid var(--card-border);
         }
 
         header h1 {
-            font-size: 2.5em;
+            font-size: 2.8em;
             margin-bottom: 10px;
-            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+            font-weight: bold;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.6);
         }
 
         header p {
-            font-size: 1.1em;
+            font-size: 1.2em;
             opacity: 0.95;
         }
 
@@ -51,11 +78,11 @@
             flex-wrap: wrap;
             gap: 0;
             margin-bottom: 30px;
-            border-bottom: 2px solid #ddd;
-            background: white;
+            border-bottom: 2px solid var(--card-border);
+            background: var(--card-dark);
             border-radius: 8px 8px 0 0;
             overflow: hidden;
-            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
         }
 
         .tab-button {
@@ -65,32 +92,34 @@
             background: none;
             border: none;
             cursor: pointer;
-            font-size: 0.95em;
-            font-weight: 500;
-            color: #666;
+            font-family: 'Apple Garamond', 'Garamond', 'Georgia', serif;
+            font-size: 1.05em;
+            font-weight: bold;
+            color: var(--text-muted);
             border-bottom: 3px solid transparent;
             transition: all 0.3s ease;
             text-align: center;
         }
 
         .tab-button:hover {
-            background-color: #f9f9f9;
-            color: #c60c30;
+            background-color: #262626;
+            color: var(--gold-accent);
         }
 
         .tab-button.active {
-            color: #c60c30;
-            border-bottom-color: #ffc400;
-            background-color: #fff8f0;
+            color: var(--gold-accent);
+            border-bottom-color: var(--gold-accent);
+            background-color: #2a2218;
         }
 
         /* Tab Content */
         .tab-content {
             display: none;
-            background: white;
+            background: var(--card-dark);
             padding: 30px;
             border-radius: 0 0 8px 8px;
-            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.4);
+            border: 1px solid var(--card-border);
             animation: fadeIn 0.3s ease-in;
         }
 
@@ -99,12 +128,8 @@
         }
 
         @keyframes fadeIn {
-            from {
-                opacity: 0;
-            }
-            to {
-                opacity: 1;
-            }
+            from { opacity: 0; }
+            to { opacity: 1; }
         }
 
         /* Content Sections */
@@ -113,48 +138,53 @@
         }
 
         .section h2 {
-            color: #c60c30;
-            font-size: 1.8em;
+            color: var(--gold-accent);
+            font-size: 2em;
+            font-weight: bold;
             margin-bottom: 15px;
-            border-left: 4px solid #ffc400;
+            border-left: 4px solid var(--red-accent);
             padding-left: 15px;
         }
 
         .section h3 {
-            color: #c60c30;
-            font-size: 1.3em;
+            color: #ff6b6b;
+            font-size: 1.4em;
+            font-weight: bold;
             margin-top: 20px;
             margin-bottom: 10px;
         }
 
         .section p {
-            color: #555;
-            margin-bottom: 10px;
+            color: var(--text-main);
+            margin-bottom: 12px;
+            font-size: 1.1em;
             text-align: justify;
         }
 
         .highlight-box {
-            background-color: #fff8f0;
-            border-left: 4px solid #ffc400;
+            background-color: #262015;
+            border-left: 4px solid var(--gold-accent);
             padding: 15px;
             margin: 20px 0;
             border-radius: 4px;
         }
 
         .highlight-box strong {
-            color: #c60c30;
+            color: var(--gold-accent);
+            font-weight: bold;
         }
 
         .warning-box {
-            background-color: #ffe8e8;
-            border-left: 4px solid #c60c30;
+            background-color: #2a1515;
+            border-left: 4px solid var(--red-accent);
             padding: 15px;
             margin: 20px 0;
             border-radius: 4px;
         }
 
         .warning-box strong {
-            color: #c60c30;
+            color: #ff6b6b;
+            font-weight: bold;
         }
 
         /* Image Helper Class */
@@ -163,25 +193,26 @@
             height: auto;
             border-radius: 6px;
             margin: 15px 0;
-            border: 1px solid #ddd;
-            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+            border: 1px solid var(--card-border);
+            box-shadow: 0 2px 8px rgba(0,0,0,0.5);
         }
 
         /* Fuentes Link Button */
         .btn-fuentes {
             display: inline-block;
-            background-color: #c60c30;
+            background-color: var(--red-accent);
             color: white;
             padding: 12px 24px;
             text-decoration: none;
             border-radius: 6px;
             font-weight: bold;
+            font-size: 1.1em;
             margin-top: 15px;
             transition: background-color 0.3s ease;
         }
 
         .btn-fuentes:hover {
-            background-color: #a00a27;
+            background-color: #b71c1c;
         }
 
         /* Statistics Box */
@@ -193,8 +224,8 @@
         }
 
         .stat-card {
-            background: #f9f9f9;
-            border: 2px solid #ffc400;
+            background: #181818;
+            border: 2px solid var(--gold-accent);
             padding: 20px;
             border-radius: 6px;
             text-align: center;
@@ -203,19 +234,19 @@
 
         .stat-card:hover {
             transform: translateY(-5px);
-            box-shadow: 0 4px 12px rgba(198, 12, 48, 0.15);
+            box-shadow: 0 4px 12px rgba(255, 179, 0, 0.2);
         }
 
         .stat-number {
-            font-size: 2.2em;
+            font-size: 2.4em;
             font-weight: bold;
-            color: #c60c30;
+            color: var(--gold-accent);
             margin-bottom: 5px;
         }
 
         .stat-label {
-            color: #666;
-            font-size: 0.95em;
+            color: var(--text-muted);
+            font-size: 1em;
         }
 
         /* List Styles */
@@ -227,19 +258,21 @@
 
         .section li {
             margin-bottom: 8px;
-            color: #555;
+            color: var(--text-main);
+            font-size: 1.05em;
         }
 
         .person-item {
-            background: #f9f9f9;
+            background: #181818;
             padding: 12px;
             margin: 8px 0;
             border-radius: 4px;
-            border-left: 3px solid #c60c30;
+            border-left: 3px solid var(--red-accent);
         }
 
         .person-item strong {
-            color: #c60c30;
+            color: var(--gold-accent);
+            font-weight: bold;
         }
 
         /* Timeline */
@@ -251,7 +284,7 @@
         .timeline-item {
             margin-bottom: 30px;
             padding-left: 30px;
-            border-left: 2px solid #ffc400;
+            border-left: 2px solid var(--gold-accent);
             position: relative;
         }
 
@@ -262,19 +295,19 @@
             top: 0;
             width: 14px;
             height: 14px;
-            background: #c60c30;
+            background: var(--red-accent);
             border-radius: 50%;
-            border: 3px solid white;
+            border: 3px solid var(--card-dark);
         }
 
         .timeline-year {
-            color: #c60c30;
+            color: var(--gold-accent);
             font-weight: bold;
-            font-size: 1.1em;
+            font-size: 1.2em;
         }
 
         .timeline-text {
-            color: #555;
+            color: var(--text-main);
             margin-top: 5px;
         }
 
@@ -283,14 +316,14 @@
             text-align: center;
             margin-top: 50px;
             padding: 20px;
-            color: #999;
-            font-size: 0.9em;
+            color: var(--text-muted);
+            font-size: 0.95em;
         }
 
         /* Responsive Design */
         @media (max-width: 768px) {
             header h1 {
-                font-size: 2em;
+                font-size: 2.2em;
             }
 
             .tabs {
@@ -299,7 +332,7 @@
 
             .tab-button {
                 min-width: 100%;
-                font-size: 0.9em;
+                font-size: 1em;
             }
 
             .stats-grid {
@@ -317,11 +350,11 @@
             }
 
             header h1 {
-                font-size: 1.6em;
+                font-size: 1.8em;
             }
 
             header p {
-                font-size: 0.95em;
+                font-size: 1em;
             }
 
             .tab-content {
@@ -329,7 +362,7 @@
             }
 
             .section h2 {
-                font-size: 1.4em;
+                font-size: 1.5em;
             }
 
             .stats-grid {
@@ -337,7 +370,7 @@
             }
 
             .tab-button {
-                font-size: 0.8em;
+                font-size: 0.9em;
                 padding: 12px 10px;
             }
         }

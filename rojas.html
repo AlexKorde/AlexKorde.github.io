@@ -1,0 +1,536 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>La Roja: Historia de España en los Mundiales</title>
+    <style>
+        @font-face {
+            font-family: 'Apple Garamond';
+            src: local('Apple Garamond'), local('AppleGaramond');
+            font-weight: normal;
+            font-style: normal;
+        }
+
+        @font-face {
+            font-family: 'Apple Garamond';
+            src: local('Apple Garamond Bold'), local('AppleGaramond-Bold');
+            font-weight: bold;
+            font-style: normal;
+        }
+
+        :root {
+            --bg-dark: #121212;
+            --card-dark: #1e1e1e;
+            --card-border: #2a2a2a;
+            --text-main: #e0e0e0;
+            --text-muted: #a0a0a0;
+            --red-accent: #d32f2f;
+            --gold-accent: #ffb300;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Apple Garamond', 'Garamond', 'Georgia', serif;
+            line-height: 1.6;
+            color: var(--text-main);
+            background-color: var(--bg-dark);
+        }
+
+        .container {
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        header {
+            background: linear-gradient(135deg, #8b0000 0%, #b8860b 100%);
+            color: white;
+            padding: 40px 20px;
+            text-align: center;
+            border-radius: 8px;
+            margin-bottom: 40px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5);
+            border: 1px solid var(--card-border);
+        }
+
+        header h1 {
+            font-size: 2.8em;
+            margin-bottom: 10px;
+            font-weight: bold;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.6);
+        }
+
+        header p {
+            font-size: 1.2em;
+            opacity: 0.95;
+        }
+
+        .tabs {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0;
+            margin-bottom: 30px;
+            border-bottom: 2px solid var(--card-border);
+            background: var(--card-dark);
+            border-radius: 8px 8px 0 0;
+            overflow: hidden;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
+        }
+
+        .tab-button {
+            flex: 1;
+            min-width: 130px;
+            padding: 15px 20px;
+            background: none;
+            border: none;
+            cursor: pointer;
+            font-family: 'Apple Garamond', 'Garamond', 'Georgia', serif;
+            font-size: 1.05em;
+            font-weight: bold;
+            color: var(--text-muted);
+            border-bottom: 3px solid transparent;
+            transition: all 0.3s ease;
+            text-align: center;
+        }
+
+        .tab-button:hover {
+            background-color: #262626;
+            color: var(--gold-accent);
+        }
+
+        .tab-button.active {
+            color: var(--gold-accent);
+            border-bottom-color: var(--gold-accent);
+            background-color: #2a2218;
+        }
+
+        .tab-content {
+            display: none;
+            background: var(--card-dark);
+            padding: 30px;
+            border-radius: 0 0 8px 8px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.4);
+            border: 1px solid var(--card-border);
+            animation: fadeIn 0.3s ease-in;
+        }
+
+        .tab-content.active {
+            display: block;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+
+        .section {
+            margin-bottom: 30px;
+        }
+
+        .section h2 {
+            color: var(--gold-accent);
+            font-size: 2em;
+            font-weight: bold;
+            margin-bottom: 15px;
+            border-left: 4px solid var(--red-accent);
+            padding-left: 15px;
+        }
+
+        .section h3 {
+            color: #ff6b6b;
+            font-size: 1.4em;
+            font-weight: bold;
+            margin-top: 20px;
+            margin-bottom: 10px;
+        }
+
+        .section p {
+            color: var(--text-main);
+            margin-bottom: 12px;
+            font-size: 1.1em;
+            text-align: justify;
+        }
+
+        .btn-fuentes {
+            display: inline-block;
+            background-color: var(--red-accent);
+            color: white;
+            padding: 12px 24px;
+            text-decoration: none;
+            border-radius: 6px;
+            font-weight: bold;
+            font-size: 1.1em;
+            margin-top: 15px;
+            transition: background-color 0.3s ease;
+        }
+
+        .btn-fuentes:hover {
+            background-color: #b71c1c;
+        }
+
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 15px;
+            margin: 20px 0;
+        }
+
+        .stat-card {
+            background: #181818;
+            border: 2px solid var(--gold-accent);
+            padding: 20px;
+            border-radius: 6px;
+            text-align: center;
+            transition: transform 0.3s ease;
+        }
+
+        .stat-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 4px 12px rgba(255, 179, 0, 0.2);
+        }
+
+        .stat-number {
+            font-size: 2.4em;
+            font-weight: bold;
+            color: var(--gold-accent);
+            margin-bottom: 5px;
+        }
+
+        .stat-label {
+            color: var(--text-muted);
+            font-size: 1em;
+        }
+
+        .section ul,
+        .section ol {
+            margin-left: 20px;
+            margin-bottom: 15px;
+        }
+
+        .section li {
+            margin-bottom: 8px;
+            color: var(--text-main);
+            font-size: 1.05em;
+        }
+
+        .person-item {
+            background: #181818;
+            padding: 12px;
+            margin: 8px 0;
+            border-radius: 4px;
+            border-left: 3px solid var(--red-accent);
+        }
+
+        .person-item strong {
+            color: var(--gold-accent);
+            font-weight: bold;
+        }
+
+        footer {
+            text-align: center;
+            margin-top: 50px;
+            padding: 20px;
+            color: var(--text-muted);
+            font-size: 0.95em;
+        }
+
+        @media (max-width: 768px) {
+            header h1 {
+                font-size: 2.2em;
+            }
+
+            .tabs {
+                flex-direction: column;
+            }
+
+            .tab-button {
+                min-width: 100%;
+                font-size: 1em;
+            }
+
+            .stats-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        @media (max-width: 480px) {
+            .container {
+                padding: 10px;
+            }
+
+            header {
+                padding: 20px 10px;
+            }
+
+            header h1 {
+                font-size: 1.8em;
+            }
+
+            header p {
+                font-size: 1em;
+            }
+
+            .tab-content {
+                padding: 15px;
+            }
+
+            .section h2 {
+                font-size: 1.5em;
+            }
+
+            .stats-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .tab-button {
+                font-size: 0.9em;
+                padding: 12px 10px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>La Roja en la Copa Mundial</h1>
+            <p>La Historia de España en los Mundiales: Identidad Colectiva y Redención</p>
+        </header>
+
+        <div class="tabs">
+            <button class="tab-button active" onclick="switchTab(event, 'introduccion')">
+                Introducción
+            </button>
+            <button class="tab-button" onclick="switchTab(event, 'ruptura')">
+                Ruptura Generacional (1934-1950)
+            </button>
+            <button class="tab-button" onclick="switchTab(event, 'candidata')">
+                La Eterna Candidata (1950-2002)
+            </button>
+            <button class="tab-button" onclick="switchTab(event, 'redencion')">
+                Redención (2008-2010)
+            </button>
+            <button class="tab-button" onclick="switchTab(event, 'dorada')">
+                La Generación Dorada
+            </button>
+            <button class="tab-button" onclick="switchTab(event, 'podcast')">
+                Podcast
+            </button>
+            <button class="tab-button" onclick="switchTab(event, 'fuentes')">
+                Fuentes
+            </button>
+            <button class="tab-button" onclick="switchTab(event, 'cultural')">
+                Comparación Cultural
+            </button>
+
+        </div>
+
+        <div id="introduccion" class="tab-content active">
+            <div class="section">
+                <h2>Introducción: El Fútbol como Identidad Colectiva</h2>
+                
+                <h3>La Importancia del Fútbol en España</h3>
+                <p>
+                    El fútbol fue considerado durante muchas décadas como el pilar más importante de la identidad colectiva y de la cultura popular en el deporte español. Este sentimiento de unión nacional a través de un balón es profundamente comparado con la devoción deportiva que existe en otras regiones del mundo. Aunque el deseo general era que la selección nacional uniera a todo el país desde sus comienzos, el camino estuvo siempre marcado por grandes desafíos políticos y divisiones sociales muy profundas.
+                </p>
+
+                <h3>Contexto Comparativo y Pasión</h3>
+                <p>
+                    La pasión absoluta por la selección nacional en España fue tan intensa como la pasión vivida en las universidades de Estados Unidos. Un ejemplo muy claro de este fenómeno se observa con la experiencia del equipo de fútbol americano de la Universidad de Virginia. A pesar de las frustraciones sufridas en múltiples temporadas contra rivales difíciles, la afición siempre mantuvo su apoyo fiel. De manera similar, aunque otros países europeos dominaron en distintas épocas, el equipo español siempre mantuvo un vínculo sagrado con sus seguidores.
+                </p>
+            </div>
+        </div>
+
+        <div id="ruptura" class="tab-content">
+            <div class="section">
+                <h2>La Ruptura Generacional (1934-1950)</h2>
+
+                <h3>El Contexto Histórico</h3>
+                <p>
+                    Entre los años mil novecientos treinta y cuatro y mil novecientos cincuenta, el país atravesó un periodo sumamente trágico conocido como la ruptura generacional. El desarrollo normal del deporte y del fútbol fue totalmente paralizado por los horrores de la Guerra Civil Española y por la grave crisis política que afectó a toda la nación durante aquellos años oscuros.
+                </p>
+
+                <h3>El Régimen y el Deporte</h3>
+                <p>
+                    Durante la dictadura, el deporte fue utilizado frecuentemente como una herramienta de propaganda política. Muchos jugadores talentosos tuvieron que marchar al exilio o sufrieron persecución, lo que dañó gravemente la continuidad de las escuelas deportivas y la formación de nuevos talentos en todo el territorio nacional.
+                </p>
+
+                <h3>Aislamiento Internacional</h3>
+                <p>
+                    Debido al largo aislamiento internacional que sufrió España tras finalizar la Segunda Guerra Mundial, la selección absoluta no pudo competir con regularidad en los torneos internacionales durante varios años. La falta de libertades democráticas y las tensiones internas frenaron el progreso del fútbol español.
+                </p>
+            </div>
+        </div>
+
+        <div id="candidata" class="tab-content">
+            <div class="section">
+                <h2>La Eterna Candidata (1950-2002)</h2>
+
+                <h3>El Surgimiento de 1950</h3>
+                <p>
+                    En el Mundial de Brasil en mil novecientos cincuenta, España realizó una participación sobresaliente logrando el cuarto puesto del torneo. En aquel equipo brilló la enorme figura de Telmo Zarra, cuyo histórico gol ante Inglaterra desató la alegría de todo un país que necesitaba motivos para celebrar.
+                </p>
+
+                <h3>Los Años de Frustración</h3>
+                <p>
+                    A pesar de tener futbolistas extraordinarios en los clubes, la selección caía de forma constante frente a potencias mundiales en los momentos decisivos. Por esta razón, la prensa internacional bautizó a España con el doloroso apodo de la eterna candidata, un equipo que jugaba bien pero que siempre fallaba al final.
+                </p>
+
+                <h3>La Furia Española</h3>
+                <p>
+                    El estilo tradicional del combinado nacional fue conocido históricamente como La Furia Española, un concepto basado en el esfuerzo físico extremo y la entrega absoluta, pero que carecía del control táctico necesario para ganar los grandes torneos internacionales.
+                </p>
+            </div>
+        </div>
+
+        <div id="redencion" class="tab-content">
+            <div class="section">
+                <h2>Redención: 2008-2010</h2>
+
+                <h3>El Atraco de Gwangju</h3>
+                <p>
+                    En el Mundial de Corea y Japón en dos mil dos, el equipo nacional realizó una fase de grupos perfecta. Sin embargo, la ilusión se rompió en los cuartos de final tras una eliminación muy dolorosa frente a Corea del Sur debido a fallos arbitrales muy discutidos, un golpe durísimo para toda la sociedad española.
+                </p>
+
+                <h3>La Revolución del Tiki-Taka</h3>
+                <p>
+                    Con la llegada del seleccionador Luis Aragonés, la mentalidad cambió por completo. Se dejó atrás el viejo estilo de la fuerza para implementar el famoso juego de posesión y toque corto conocido como tiki-taka, logrando conquistar la Eurocopa de dos mil ocho y comenzando una etapa dorada.
+                </p>
+
+                <h3>La Gloria Mundial</h3>
+                <p>
+                    En la Copa del Mundo de Sudáfrica en dos mil diez, España alcanzó la cima al proclamarse campeona del mundo por primera vez. El inolvidable gol anotado por Andrés Iniesta en la prórroga de la gran final frente a los Países Bajos borró décadas de frustraciones y convirtió a la selección en un símbolo nacional de unidad y triunfo.
+                </p>
+
+                <div class="stats-grid">
+                    <div class="stat-card">
+                        <div class="stat-number">2</div>
+                        <div class="stat-label">Copas del Mundo (2010, 2026)</div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-number">116'</div>
+                        <div class="stat-label">Minuto del Gol de Iniesta en 2010</div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-number">106'</div>
+                        <div class="stat-label">Minuto del Gol de Ferran Torres en 2026</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div id="dorada" class="tab-content">
+            <div class="section">
+                <h2>La Generación Dorada: Los Arquitectos de la Redención</h2>
+
+                <h3>La Transformación del País</h3>
+                <p>
+                    La maravillosa generación de futbolistas que brilló entre dos mil ocho y dos mil diez no solo cambió la historia deportiva, sino que transformó por completo la autoestima de toda la sociedad española, demostrando que con talento y trabajo en equipo se pueden romper todas las barreras.
+                </p>
+
+                <h3>Los Protagonistas Principales</h3>
+                <p>Entre los jugadores más destacados de esta época inolvidable se encuentran:</p>
+
+                <div class="person-item">
+                    <strong>Xavi Hernández:</strong> El director de orquesta en el centro del campo que dictaba el ritmo de los partidos.
+                </div>
+                <div class="person-item">
+                    <strong>Andrés Iniesta:</strong> El genio silencioso que marcó el gol más importante de la historia del fútbol español.
+                </div>
+                <div class="person-item">
+                    <strong>Iker Casillas:</strong> El legendario capitán y portero cuyas paradas milagrosas salvaron al equipo en los momentos más difíciles.
+                </div>
+                <div class="person-item">
+                    <strong>Sergio Busquets:</strong> El centrocampista defensivo que aportó equilibrio táctico y una salida limpia del balón.
+                </div>
+            </div>
+        </div>
+
+        <div id="fuentes" class="tab-content">
+            <div class="section">
+                <h2>Fuentes</h2>
+
+                <p>
+                    Para consultar la bibliografía completa, los artículos y los documentos históricos que respaldan toda la información presentada en esta investigación sobre la Selección Española de Fútbol, puede acceder al documento oficial haciendo clic en el botón de abajo:
+                </p>
+
+                <a href="fuentes.pdf" target="_blank" class="btn-fuentes">📄 Abrir fuentes.pdf</a>
+            </div>
+        </div>
+
+        <div id="podcast" class="tab-content">
+            <div class="section">
+                <h2>Podcast: La Historia de La Roja</h2>
+                
+                <p>
+                    En este episodio especial de audio se analiza a fondo cómo la Selección Española logró superar su historia de derrotas para convertirse en la gran dominadora del fútbol mundial. Escuche el debate completo sobre los momentos clave, las emociones de la afición y la evolución táctica del equipo a lo largo de las décadas.
+                </p>
+
+                <a href="https://drive.google.com/file/d/1QiB8Ia-T9FlzPHakB1Fyn-3MKR9m-KrE/view?usp=sharing" target="_blank" class="btn-fuentes">🎧 Acceder al Podcast</a>
+            </div>
+        </div>
+
+        <div id="cultural" class="tab-content">
+    <div class="section">
+        <h2>Comparación Cultural: Pasión y Deporte</h2>
+        
+        <h3>Paralelismos en mi Universidad</h3>
+        <p>
+    Tanto el desastre arbitral frente a Corea del Sur en 2002 como la abrumadora derrota de Virginia por 55-17 ante Virginia Tech representan el colapso repentino de una afición ilusionada. Mientras que la selección española vio frenado un torneo prometedor por decisiones injustas en cuartos de final, los Cavaliers salieron sin ritmo en el juego más importante del año. Ambos episodios simbolizan la amargura colectiva de ver derrumbarse un proyecto deportivo en el momento más decisivo de la temporada.
+</p>
+        </div>
+</div>
+
+        <footer>
+
+            <p>Alex Korde</p>
+        </footer>
+    </div>
+
+    <script>
+        function switchTab(event, tabName) {
+            const tabContents = document.querySelectorAll('.tab-content');
+            tabContents.forEach(content => {
+                content.classList.remove('active');
+            });
+
+            const tabButtons = document.querySelectorAll('.tab-button');
+            tabButtons.forEach(button => {
+                button.classList.remove('active');
+            });
+
+            const selectedTab = document.getElementById(tabName);
+            if (selectedTab) {
+                selectedTab.classList.add('active');
+            }
+
+            event.currentTarget.classList.add('active');
+
+            window.scrollTo(0, document.querySelector('.tabs').offsetTop - 20);
+        }
+
+        document.addEventListener('DOMContentLoaded', function() {
+            const tabButtons = document.querySelectorAll('.tab-button');
+            
+            tabButtons.forEach((button, index) => {
+                button.addEventListener('keydown', function(e) {
+                    if (e.key === 'ArrowRight') {
+                        const nextIndex = (index + 1) % tabButtons.length;
+                        tabButtons[nextIndex].click();
+                        tabButtons[nextIndex].focus();
+                    } else if (e.key === 'ArrowLeft') {
+                        const prevIndex = (index - 1 + tabButtons.length) % tabButtons.length;
+                        tabButtons[prevIndex].click();
+                        tabButtons[prevIndex].focus();
+                    }
+                });
+            });
+        });
+    </script>
+</body>
+</html>

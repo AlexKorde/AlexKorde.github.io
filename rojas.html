@@ -5,7 +5,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>La Roja: Historia de España en los Mundiales</title>
     <style>
-        /* Font-face declaration for Apple Garamond */
         @font-face {
             font-family: 'Apple Garamond';
             src: local('Apple Garamond'), local('AppleGaramond');
@@ -72,7 +71,6 @@
             opacity: 0.95;
         }
 
-        /* Tab Navigation */
         .tabs {
             display: flex;
             flex-wrap: wrap;
@@ -112,7 +110,6 @@
             background-color: #2a2218;
         }
 
-        /* Tab Content */
         .tab-content {
             display: none;
             background: var(--card-dark);
@@ -132,7 +129,6 @@
             to { opacity: 1; }
         }
 
-        /* Content Sections */
         .section {
             margin-bottom: 30px;
         }
@@ -187,17 +183,6 @@
             font-weight: bold;
         }
 
-        /* Image Helper Class */
-        .content-img {
-            max-width: 100%;
-            height: auto;
-            border-radius: 6px;
-            margin: 15px 0;
-            border: 1px solid var(--card-border);
-            box-shadow: 0 2px 8px rgba(0,0,0,0.5);
-        }
-
-        /* Fuentes Link Button */
         .btn-fuentes {
             display: inline-block;
             background-color: var(--red-accent);
@@ -215,7 +200,6 @@
             background-color: #b71c1c;
         }
 
-        /* Statistics Box */
         .stats-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
@@ -249,7 +233,6 @@
             font-size: 1em;
         }
 
-        /* List Styles */
         .section ul,
         .section ol {
             margin-left: 20px;
@@ -275,43 +258,12 @@
             font-weight: bold;
         }
 
-        /* Timeline */
-        .timeline {
-            position: relative;
-            padding: 20px 0;
+        audio {
+            outline: none;
+            border-radius: 6px;
+            filter: invert(0.9) hue-rotate(180deg);
         }
 
-        .timeline-item {
-            margin-bottom: 30px;
-            padding-left: 30px;
-            border-left: 2px solid var(--gold-accent);
-            position: relative;
-        }
-
-        .timeline-item::before {
-            content: '';
-            position: absolute;
-            left: -8px;
-            top: 0;
-            width: 14px;
-            height: 14px;
-            background: var(--red-accent);
-            border-radius: 50%;
-            border: 3px solid var(--card-dark);
-        }
-
-        .timeline-year {
-            color: var(--gold-accent);
-            font-weight: bold;
-            font-size: 1.2em;
-        }
-
-        .timeline-text {
-            color: var(--text-main);
-            margin-top: 5px;
-        }
-
-        /* Footer */
         footer {
             text-align: center;
             margin-top: 50px;
@@ -320,7 +272,6 @@
             font-size: 0.95em;
         }
 
-        /* Responsive Design */
         @media (max-width: 768px) {
             header h1 {
                 font-size: 2.2em;
@@ -378,164 +329,146 @@
 </head>
 <body>
     <div class="container">
-        <!-- Header -->
         <header>
-            <!-- AGREGAR TEXTO: Puede modificar el título principal aquí -->
             <h1>La Roja en la Copa Mundial</h1>
             <p>La Historia de España en los Mundiales: Identidad Colectiva y Redención</p>
         </header>
 
-        <!-- Tab Navigation -->
-<div class="tabs">
-    <button class="tab-button active" onclick="switchTab(event, 'introduccion')">
-        Introducción
-    </button>
-    <button class="tab-button" onclick="switchTab(event, 'ruptura')">
-        Ruptura Generacional (1934-1950)
-    </button>
-    <button class="tab-button" onclick="switchTab(event, 'candidata')">
-        La Eterna Candidata (1950-2002)
-    </button>
-    <button class="tab-button" onclick="switchTab(event, 'redencion')">
-        Redención (2008-2010)
-    </button>
-    <button class="tab-button" onclick="switchTab(event, 'dorada')">
-        La Generación Dorada
-    </button>
-    <!-- NUEVA PESTAÑA DE PODCAST -->
-    <button class="tab-button" onclick="switchTab(event, 'podcast')">
-        Podcast
-    </button>
-    <button class="tab-button" onclick="switchTab(event, 'fuentes')">
-        Fuentes
-    </button>
-</div>
+        <div class="tabs">
+            <button class="tab-button active" onclick="switchTab(event, 'introduccion')">
+                Introducción
+            </button>
+            <button class="tab-button" onclick="switchTab(event, 'ruptura')">
+                Ruptura Generacional (1934-1950)
+            </button>
+            <button class="tab-button" onclick="switchTab(event, 'candidata')">
+                La Eterna Candidata (1950-2002)
+            </button>
+            <button class="tab-button" onclick="switchTab(event, 'redencion')">
+                Redención (2008-2010)
+            </button>
+            <button class="tab-button" onclick="switchTab(event, 'dorada')">
+                La Generación Dorada
+            </button>
+            <button class="tab-button" onclick="switchTab(event, 'podcast')">
+                Podcast
+            </button>
+            <button class="tab-button" onclick="switchTab(event, 'fuentes')">
+                Fuentes
+            </button>
+        </div>
 
-        <!-- Tab 1: Introducción -->
         <div id="introduccion" class="tab-content active">
             <div class="section">
                 <h2>Introducción: El Fútbol como Identidad Colectiva</h2>
                 
-                <!-- AGREGAR IMAGEN: Descomente la línea de abajo y reemplace 'ruta-imagen-1.jpg' por el nombre de su archivo -->
-                <!-- <img src="ruta-imagen-1.jpg" alt="Afición de la Selección Española" class="content-img"> -->
-
                 <h3>La Importancia del Fútbol en España</h3>
                 <p>
-                    El fútbol fue considerado durante décadas como el pilar más importante de la identidad colectiva en el deporte español. 
-                    Es posible que este sentimiento sea comparado con la devoción deportiva existente en otras regiones del mundo. 
-                    Aunque se esperaba que la selección uniera a todo el país desde sus inicios, el camino estuvo lleno de grandes desafíos políticos y sociales.
+                    El fútbol fue considerado durante décadas como el pilar más importante de la identidad colectiva en el deporte español[span_4](start_span)[span_4](end_span)[span_5](start_span)[span_5](end_span). 
+                    Este sentimiento es comparado con la devoción deportiva existente en otras regiones del mundo[span_6](start_span)[span_6](end_span). 
+                    Aunque se esperaba que la selección uniera a todo el país desde sus inicios, el camino estuvo lleno de grandes desafíos políticos y sociales[span_7](start_span)[span_7](end_span)[span_8](start_span)[span_8](end_span).
                 </p>
 
                 <h3>Contexto Comparativo</h3>
                 <p>
-                    La pasión por la selección nacional en España es tan intensa como la pasión vivida en las universidades de Estados Unidos, tal como ocurre con el equipo de fútbol americano de la Universidad de Virginia (UVA). 
-                    A pesar de que otros países europeos hayan demostrado una gran dominancia en diferentes épocas, el equipo español siempre mantendrá un vínculo profundo con su afición.
+                    La pasión por la selección nacional en España fue tan intensa como la pasión vivida en las universidades de Estados Unidos[span_9](start_span)[span_9](end_span). 
+                    Un ejemplo claro fue la experiencia observada con el equipo de fútbol americano de la Universidad de Virginia (UVA)[span_10](start_span)[span_10](end_span). 
+                    A pesar de las frustraciones sufridas contra rivales como Virginia Tech, Clemson o Florida, la afición mantuvo su apoyo fiel[span_11](start_span)[span_11](end_span). 
+                    De manera similar, aunque otros países europeos hayan demostrado una gran dominancia en diferentes épocas, el equipo español siempre mantendrá un vínculo profundo con su afición[span_12](start_span)[span_12](end_span)[span_13](start_span)[span_13](end_span).
                 </p>
 
                 <div class="highlight-box">
-                    <strong>Dato Clave:</strong> El fútbol no solo representó un pasatiempo en España, sino que fue utilizado como un conector cultural e identidad nacional a lo largo del siglo XX.
+                    <strong>Dato Clave:</strong> El fútbol no solo representó un pasatiempo en España, sino que fue utilizado como un conector cultural e identidad nacional a lo largo del siglo XX[span_14](start_span)[span_14](end_span)[span_15](start_span)[span_15](end_span).
                 </div>
-
-                <!-- AGREGAR TEXTO: Puede añadir párrafos adicionales en esta sección -->
             </div>
         </div>
 
-        <!-- Tab 2: Ruptura Generacional -->
         <div id="ruptura" class="tab-content">
             <div class="section">
                 <h2>La Ruptura Generacional (1934-1950)</h2>
 
-                <!-- AGREGAR IMAGEN: Descomente la línea de abajo para insertar una imagen histórica -->
-                <!-- <img src="ruta-imagen-2.jpg" alt="Selección de España en 1934" class="content-img"> -->
-                
                 <h3>El Contexto Histórico</h3>
                 <p>
-                    Entre los años 1934 y 1950, el país atravesó un periodo trágico conocido como la "ruptura generacional". 
-                    El desarrollo del fútbol fue paralizado por los horrores de la Guerra Civil Española y la crisis política posterior.
+                    Entre los años mil novecientos treinta y cuatro y mil novecientos cincuenta, el país atravesó un periodo trágico conocido como la "ruptura generacional[span_16](start_span)[span_17](start_span)"[span_16](end_span)[span_17](end_span). 
+                    El desarrollo del fútbol fue paralizado por los horrores de la Guerra Civil Española y la crisis política posterior[span_18](start_span)[span_18](end_span).
                 </p>
 
                 <h3>El Régimen de Franco y el Fútbol</h3>
                 <p>
-                    Durante la dictadura del general Franco, el deporte fue utilizado como una herramienta de propaganda. 
-                    Muchos futbolistas talentosos fueron exiliados o perseguidos, lo que afectó gravemente la continuidad de las escuelas deportivas en todo el territorio español.
+                    Durante la dictadura del general Francisco Franco, el deporte fue utilizado como una herramienta de propaganda política[span_19](start_span)[span_19](end_span). 
+                    Muchos futbolistas talentosos fueron exiliados o perseguidos por el régimen, lo que afectó gravemente la continuidad de las escuelas deportivas en todo el territorio español[span_20](start_span)[span_20](end_span).
                 </p>
 
                 <h3>Ausencia y Aislamiento Internacional</h3>
                 <p>
-                    Debido al aislamiento internacional de España tras la Segunda Guerra Mundial, la selección nacional no pudo competir regularmente en torneos internacionales durante varios años.
+                    Debido al aislamiento internacional de España tras la Segunda Guerra Mundial, la selección nacional no pudo competir regularmente en torneos internacionales durante varios años[span_21](start_span)[span_21](end_span). 
+                    La falta de democracia y las tensiones internas impidieron un avance constante del fútbol español en el escenario mundial[span_22](start_span)[span_22](end_span)[span_23](start_span)[span_23](end_span).
                 </p>
 
                 <h3>El Impacto Generacional</h3>
                 <p>
-                    Toda una generación de atletas perdió sus mejores años de carrera. 
-                    No obstante, la pasión de la comunidad futbolística permitió que el deporte renaciera cuando las condiciones globales mejoraron.
+                    Toda una generación de atletas perdió sus mejores años de carrera[span_24](start_span)[span_24](end_span). 
+                    No obstante, la resiliencia de la comunidad futbolística permitió que el deporte renaciera cuando las condiciones globales mejoraron[span_25](start_span)[span_25](end_span)[span_26](start_span)[span_26](end_span).
                 </p>
-
             </div>
         </div>
 
-        <!-- Tab 3: La Eterna Candidata -->
         <div id="candidata" class="tab-content">
             <div class="section">
                 <h2>La Eterna Candidata (1950-2002)</h2>
 
-                
-                
                 <h3>El Surgimiento de 1950</h3>
                 <p>
-                    En el Mundial de Brasil 1950, España realizó una gran actuación y obtuvo el cuarto lugar del torneo. 
-                    Destacó la gran figura de Telmo Zarra, cuyo gol venció a Inglaterra en un partido histórico que fue celebrado por toda la nación.
+                    En el Mundial de Brasil en mil novecientos cincuenta, España realizó una gran actuación y obtuvo el cuarto lugar del torneo[span_27](start_span)[span_27](end_span). 
+                    Destacó la gran figura de Telmo Zarra, cuyo famoso gol venció a Inglaterra en un partido histórico que fue celebrado por toda la nación[span_28](start_span)[span_28](end_span).
                 </p>
 
                 <h3>El Enfrentamiento Contra Potencias</h3>
                 <p>
-                    A pesar de contar con grandes estrellas en sus clubes, la selección cayó repetidamente ante potencias mundiales como Italia, Brasil y Alemania. 
-                    Por esta razón, la comunidad internacional catalogó a España como "la eterna candidata" que siempre fallaba en las etapas decisivas.
+                    A pesar de contar con grandes estrellas en sus clubes, la selección cayó repetidamente ante potencias mundiales como Italia, Brasil y Alemania[span_29](start_span)[span_29](end_span)[span_30](start_span)[span_30](end_span). 
+                    Por esta razón, la comunidad internacional catalogó a España como "la eterna candidata" que siempre fallaba en las etapas decisivas[span_31](start_span)[span_31](end_span)[span_32](start_span)[span_32](end_span).
                 </p>
 
                 <h3>La Comparación con UVA: El Equipo de "La Furia"</h3>
                 <p>
-                    El estilo tradicional de España fue denominado "La Furia Española", caracterizado por el esfuerzo físico y la pasión, pero con poca táctica colectiva. 
-                    Esta situación fue similar a la de equipos con mucho talento que no logran ganar campeonatos, como ocurrió históricamente con el equipo de la Universidad de Virginia (UVA) antes de sus épocas doradas.
+                    El estilo tradicional de España fue denominado "La Furia Española", caracterizado por el esfuerzo físico, el orgullo y la pasión, pero con poca táctica colectiva[span_33](start_span)[span_33](end_span)[span_34](start_span)[span_34](end_span). 
+                    Esta situación fue análoga a la de equipos con mucho talento que sufrieron largas sequías de títulos, como ocurrió con la Universidad de Virginia (UVA) en sus enfrentamientos históricos[span_35](start_span)[span_35](end_span).
                 </p>
 
                 <div class="warning-box">
-                    <strong>El Apodo de La Furia:</strong> Se caracterizó por la intensidad física, pero careció del control táctico que más tarde llevaría al éxito mundial.
+                    <strong>El Apodo de La Furia:</strong> Se caracterizó por la intensidad física, pero careció del control táctico que más tarde llevaría al éxito mundial[span_36](start_span)[span_36](end_span)[span_37](start_span)[span_37](end_span).
                 </div>
-
-                <!-- AGREGAR TEXTO: Puede detallar otros torneos jugados entre 1950 y 2002 -->
             </div>
         </div>
 
-        <!-- Tab 4: Redención -->
         <div id="redencion" class="tab-content">
             <div class="section">
                 <h2>Redención: 2008-2010</h2>
 
-               
                 <h3>El Atraco de Gwangju (2002)</h3>
                 <p>
-                    En el Mundial de Corea-Japón 2002, el equipo jugó de manera excelente en la fase de grupos. 
-                    Sin embargo, la selección fue eliminada dolorosamente por Corea del Sur en cuartos de final tras decisiones arbitrales muy polémicas que fueron recordadas como "el atraco de Gwangju".
+                    En el Mundial de Corea-Japón en dos mil dos, el equipo jugó de manera excelente en la fase de grupos[span_38](start_span)[span_38](end_span)[span_39](start_span)[span_39](end_span). 
+                    Sin embargo, la selección fue eliminada dolorosamente por Corea del Sur en cuartos de final tras decisiones arbitrales muy polémicas que fueron recordadas como "el atraco de Gwangju[span_40](start_span)[span_41](start_span)"[span_40](end_span)[span_41](end_span). 
+                    Toda la sociedad española fue golpeada por esta gran frustración deportiva[span_42](start_span)[span_42](end_span).
                 </p>
 
                 <h3>La Transformación (2006-2008)</h3>
                 <p>
-                    Bajo la dirección técnica de Luis Aragonés, el estilo de juego fue transformado radicalmente. 
-                    Se abandonó el estilo de "La Furia" y se adoptó el sistema de toque conocido como "tiki-taka". 
-                    España conquistó la Eurocopa 2008, abriendo paso a una era de éxito total.
+                    Bajo la dirección técnica de Luis Aragonés, el estilo de juego fue transformado radicalmente[span_43](start_span)[span_43](end_span). 
+                    Se abandonó el estilo de "La Furia" y se adoptó el sistema de toque conocido como "tiki-taka[span_44](start_span)"[span_44](end_span). 
+                    España conquistó la Eurocopa en dos mil ocho, abriendo paso a una era de éxito total[span_45](start_span)[span_45](end_span).
                 </p>
 
                 <h3>La Redención Final (2010)</h3>
                 <p>
-                    En la Copa Mundial de Sudáfrica 2010, España fue coronada campeona del mundo por primera vez en su historia. 
-                    Con un inolvidable gol de Andrés Iniesta en la prórroga frente a Países Bajos, la eterna candidata alcanzó la gloria máxima.
+                    En la Copa Mundial de Sudáfrica en dos mil diez, España fue coronada campeona del mundo por primera vez en su historia[span_46](start_span)[span_46](end_span)[span_47](start_span)[span_47](end_span). 
+                    Con un inolvidable gol de Andrés Iniesta en el minuto ciento dieciséis de la prórroga frente a Países Bajos, la eterna candidata alcanzó la gloria máxima[span_48](start_span)[span_48](end_span)[span_49](start_span)[span_49](end_span).
                 </p>
 
-                <h3>2026: La Pregunta de la Continuidad</h3>
+                <h3>2026: La Continuidad del Éxito</h3>
                 <p>
-                    En el Mundial de 2026, la selección derrotó 1-0 a Argentina en el MetLife Stadium con un gol de Ferran Torres en la prórroga y se consagró campeona mundial por segunda vez. 
-                    En los próximos años, se espera que jóvenes talentos lideren el equipo hacia nuevas victorias donde la afición celebrará más triunfos.
+                    En el Mundial de dos mil veintiséis, la selección derrotó uno a cero a Argentina en el MetLife Stadium con un gol de Ferran Torres en el minuto ciento seis de la prórroga y se consagró campeona mundial por segunda vez[span_50](start_span)[span_50](end_span). 
+                    Jóvenes talentos como Lamine Yamal y Pau Cubarsí demostraron que la filosofía del equipo se mantendrá viva para las futuras generaciones[span_51](start_span)[span_51](end_span)[span_52](start_span)[span_52](end_span).
                 </p>
 
                 <div class="stats-grid">
@@ -552,132 +485,122 @@
                         <div class="stat-label">Minuto del Gol de Ferran Torres en 2026</div>
                     </div>
                 </div>
-
             </div>
         </div>
 
-        <!-- Tab 5: La Generación Dorada -->
         <div id="dorada" class="tab-content">
             <div class="section">
                 <h2>La Generación Dorada: Los Arquitectos de la Redención</h2>
 
-               
                 <h3>Más Allá del Fútbol</h3>
                 <p>
-                    La "Generación Dorada" no solo cambió los resultados en el campo de juego, sino que transformó la mentalidad de todo un país. 
-                    Demostraron que con trabajo en equipo y precisión técnica se podían superar las barreras históricas.
+                    La "Generación Dorada" no solo cambió los resultados en el campo de juego, sino que transformó la mentalidad de todo un país[span_53](start_span)[span_53](end_span)[span_54](start_span)[span_54](end_span). 
+                    Demostraron que con trabajo en equipo, humildad y precisión técnica se podían superar las barreras históricas[span_55](start_span)[span_55](end_span).
                 </p>
 
                 <h3>Los Protagonistas de la Generación Dorada</h3>
                 <p>Los principales futbolistas que construyeron este periodo de gloria fueron:</p>
 
                 <div class="person-item">
-                    <strong>Xavi Hernández:</strong> El cerebro táctico en el mediocampo que organizó el juego de toque.
+                    <strong>Xavi Hernández:</strong> El cerebro táctico en el mediocampo que organizó el juego de toque y la posesión[span_56](start_span)[span_56](end_span).
                 </div>
                 <div class="person-item">
-                    <strong>Andrés Iniesta:</strong> El héroe nacional que anotó el gol de la victoria en la final de 2010.
+                    <strong>Andrés Iniesta:</strong> El héroe nacional que anotó el gol de la victoria decisiva en la final de dos mil diez[span_57](start_span)[span_57](end_span)[span_58](start_span)[span_58](end_span).
                 </div>
                 <div class="person-item">
-                    <strong>Iker Casillas:</strong> El capitán y guardameta que realizó atajadas salvadoras en momentos decisivos.
+                    <strong>Iker Casillas:</strong> El capitán y guardameta que realizó atajadas salvadoras en momentos decisivos[span_59](start_span)[span_59](end_span).
                 </div>
                 <div class="person-item">
-                    <strong>Sergio Busquets:</strong> La piedra angular del equilibrio defensivo y la distribución del balón.
+                    <strong>Sergio Busquets:</strong> La piedra angular del equilibrio defensivo y la distribución del balón[span_60](start_span)[span_60](end_span).
                 </div>
 
                 <h3>La Filosofía del Juego</h3>
                 <p>
-                    La filosofía se basó en la posesión del balón, el pase corto y la presión alta. 
-                    Se demostró que el talento técnico y la inteligencia táctica eran superiores a la fuerza física bruta.
+                    La filosofía se basó en la posesión constante del balón, el pase corto y rápido, y la presión alta[span_61](start_span)[span_61](end_span). 
+                    Se demostró que el talento técnico y la inteligencia táctica eran superiores a la fuerza física bruta empleada en décadas anteriores[span_62](start_span)[span_62](end_span).
                 </p>
 
                 <h3>Legado Duradero</h3>
                 <p>
-                    El legado de esta generación inspiró a las futuras promesas de la selección española. 
-                    Nuevos futbolistas como Lamine Yamal y Pau Cubarsí mantendrán viva esta identidad de juego en el futuro.
+                    El legado de esta generación inspiró a las futuras promesas de la selección española[span_63](start_span)[span_63](end_span)[span_64](start_span)[span_64](end_span). 
+                    Nuevos futbolistas como Lamine Yamal y Pau Cubarsí mantendrán viva esta identidad de juego en el futuro[span_65](start_span)[span_65](end_span)[span_66](start_span)[span_66](end_span).
                 </p>
-
-                <h3>¿La Roja se Redimirá de Nuevo?</h3>
-                <p>
-                    En las próximas competiciones mundiales, la Selección Española buscará defender sus títulos y demostrará que la filosofía de la Generación Dorada continuará vigente por muchos años más.
-                </p>
-
-                <!-- AGREGAR TEXTO: Puede agregar más biografías de jugadores o entrenadores -->
             </div>
         </div>
 
-        <!-- Tab 6: Fuentes (Works Cited) -->
         <div id="fuentes" class="tab-content">
             <div class="section">
                 <h2>Fuentes</h2>
-                
-                <!-- AGREGAR IMAGEN: Opcional para la sección de fuentes -->
-                <!-- <img src="ruta-imagen-fuentes.jpg" alt="Documentación e historia" class="content-img"> -->
 
                 <p>
                     Para consultar la bibliografía completa y los documentos históricos que respaldan este análisis sobre la Selección Española de Fútbol, puede acceder al archivo PDF oficial directamente desde aquí:
                 </p>
 
-                <!-- Botón directo al archivo fuentes.pdf en el directorio raíz de GitHub Pages -->
                 <a href="fuentes.pdf" target="_blank" class="btn-fuentes">📄 Abrir fuentes.pdf</a>
 
                 <div class="highlight-box" style="margin-top: 25px;">
-                    <strong>Nota de Consulta:</strong> El archivo PDF contiene las citas completas de ensayos, análisis de ESPN Deportes y documentación histórica sobre la trayectoria de España en los Mundiales.
+                    <strong>Nota de Consulta:</strong> El archivo PDF contiene las citas completas de ensayos, análisis de ESPN Deportes y documentación histórica sobre la trayectoria de España en los Mundiales[span_67](start_span)[span_67](end_span)[span_68](start_span)[span_68](end_span)[span_69](start_span)[span_69](end_span)[span_70](start_span)[span_70](end_span).
                 </div>
-
             </div>
         </div>
 
-<!-- Tab: Podcast -->
-<div id="podcast" class="tab-content">
-    <div class="section">
-        <h2>Podcast:</h2>
-        
-        
-        <div class="highlight-box">
-            <strong>Escucha el Episodio Especial:</strong>
-            <p style="margin-top: 10px; margin-bottom: 15px;">
-            </p>
+        <div id="podcast" class="tab-content">
+            <div class="section">
+                <h2>Podcast: La Historia de La Roja</h2>
+                
+                <p>
+                    En este episodio se analiza cómo la Selección Española pasa de ser "la eterna candidata" a convertirse en campeona del mundo[span_71](start_span)[span_71](end_span)[span_72](start_span)[span_72](end_span). 
+                    Se discuten los momentos clave de la historia deportiva, las frustraciones históricas y la unión de la sociedad a través del fútbol[span_73](start_span)[span_73](end_span)[span_74](start_span)[span_74](end_span)[span_75](start_span)[span_75](end_span).
+                </p>
 
-            <audio controls style="width: 100%; margin-top: 10px;">
-    <source src="./paso5.mp3" type="audio/mpeg">
-</audio>
+                <div class="highlight-box">
+                    <strong>Escucha el Episodio Especial:</strong>
+                    <p style="margin-top: 10px; margin-bottom: 15px;">
+                        Reproduce el archivo de audio a continuación para escuchar el diálogo completo entre Alex y Alejandro sobre la evolución de La Roja:
+                    </p>
 
+                    <audio controls style="width: 100%; margin-top: 10px;">
+                        <source src="./paso5.mp3" type="audio/mpeg">
+                        Tu navegador no soporta el elemento de audio.
+                    </audio>
+                </div>
 
-    
+                <h3>Detalles del Episodio</h3>
+                <ul>
+                    <li><strong>Temas abordados:</strong> La ruptura generacional, las comparaciones deportivas, el atraco de Gwangju y la redención del equipo[span_76](start_span)[span_76](end_span)[span_77](start_span)[span_77](end_span)[span_78](start_span)[span_78](end_span).</li>
+                    <li><strong>Idioma:</strong> Español</li>
+                </ul>
+            </div>
+        </div>
+
+        <footer>
+            <p>&copy; 2026 La Roja en la Copa Mundial. Basado en análisis de ESPN Deportes y documentación histórica.</p>
+            <p>Última actualización: 2026</p>
+        </footer>
     </div>
-</div>
-
-
-    
 
     <script>
         function switchTab(event, tabName) {
-            // Hide all tab contents
             const tabContents = document.querySelectorAll('.tab-content');
             tabContents.forEach(content => {
                 content.classList.remove('active');
             });
 
-            // Remove active class from all buttons
             const tabButtons = document.querySelectorAll('.tab-button');
             tabButtons.forEach(button => {
                 button.classList.remove('active');
             });
 
-            // Show selected tab content
             const selectedTab = document.getElementById(tabName);
             if (selectedTab) {
                 selectedTab.classList.add('active');
             }
 
-            // Add active class to clicked button
             event.currentTarget.classList.add('active');
 
-            // Scroll to top of content
             window.scrollTo(0, document.querySelector('.tabs').offsetTop - 20);
         }
 
-        // Keyboard navigation
         document.addEventListener('DOMContentLoaded', function() {
             const tabButtons = document.querySelectorAll('.tab-button');
             
